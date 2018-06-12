@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -w & nodemon server/index.js"
+    "start": "webpack -w & nodemon server/start.js"
   },
   "author": "Jonathan Fuchs",
   "license": "ISC",
@@ -13,6 +13,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -20,7 +22,8 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sequelize": "^4.37.10"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
