@@ -1,13 +1,11 @@
 'use strict'; // eslint-disable-line semi
 
-const router = require('express').Router();
+const api = module.exports = require('express').Router() // eslint-disable-line new-cap
 
-router.use('/users', require('./routes/users')); // matches all requests to /api/users/
+api
+  .get('/heartbeat', (req, res) => res.send({ok: true}))
+  .use('/auth', require('./auth'))
+  .use('/users', require('./routes/users'))
 
-router.use(function (req, res, next) {
-  const err = new Error('Not found.');
-  err.status = 404;
-  next(err);
-});
-
-module.exports = router;
+// No routes matched? 404.
+api.use((req, res) => res.status(404).end())
